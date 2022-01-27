@@ -1,16 +1,8 @@
-﻿All Contents of Fireworks Folder by Myriad licensed under Public Domain: https://opengameart.org/content/fireworks 
-Exact File Names of Assets by Myriad:
-"blueshot.png"
-"firework_red0.png"
-"firework_red1.png"
-"firework_red2.png" 
-"firework_red3.png"
-"firework_red4.png"
-"firework_red5.png"
-"firework_red6.png"
-"firework_red7.png"
-"redshot.png"
-"violetshot.png"
-"yellowshot.png"
+﻿All Contents of "Fireworks" Folder in the Content Folder by Myriad licensed under Public Domain: https://opengameart.org/content/fireworks 
 
+All Contents of "Background_City_Skyline" Folder in Content Folder by FabinhoSC licensed under Public Domain: https://opengameart.org/content/skyline-background#
 
+"WhiteMoon.png" by peony licensed under CC-BY 4.0: https://opengameart.org/content/space-pixel-art
+"YellowHalfMoon.png" by peony licensed under CC-BY 4.0: https://opengameart.org/content/space-pixel-art
+
+"Clouds.png" by Igor Gundarev licensed under Public Domain: https://opengameart.org/content/clouds
