@@ -43,9 +43,10 @@ namespace CIS580_Project
 
             // TODO: use this.Content to load your game content here
             moonSprite = Content.Load<Texture2D>("FullMoon");
-            foreach (var fw in fireworks) fw.LoadContent(Content);
-            skyline.LoadContent(Content);
-            foreach (var c in clouds) c.LoadContent(Content);
+            //foreach (var fw in fireworks) fw.LoadContent(Content);
+            //skyline.LoadContent(Content);
+            //foreach (var c in clouds) c.LoadContent(Content);
+            pressStart2P = Content.Load<SpriteFont>("PressStart2P");
         }
 
         protected override void Update(GameTime gameTime)
@@ -69,12 +70,14 @@ namespace CIS580_Project
 
             // TODO: Add your drawing code here
             _spriteBatch.Begin();
+
             /*
              *             slimeGhost.Draw(gameTime, spriteBatch);
             spriteBatch.Draw(atlas, new Vector2(50, 50), new Rectangle(96, 16, 16, 16), Color.White);
             foreach (var bat in bats) bat.Draw(gameTime, spriteBatch);
             spriteBatch.DrawString(bangers, $"{gameTime.TotalGameTime:c}", new Vector2(2, 2), Color.Gold);
              */
+            _spriteBatch.DrawString(pressStart2P, "Light \nThe Sky", new Vector2(200, 200), Color.Red);
             _spriteBatch.End();
             base.Draw(gameTime);
         }

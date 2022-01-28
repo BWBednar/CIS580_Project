@@ -1,10 +1,15 @@
-﻿Content/Fireworks/* (all folder content) - by Myriad pn OpenGameArt.Org licensed under Public Domain: https://opengameart.org/content/fireworks 
+﻿Content/redshot.png - created by Myriad as part of their Fireworks Pack on OpenGameArt.Org (https://opengameart.org/content/fireworks), released under public domain
+Content/violetshot.png - created by Myriad as part of their Fireworks Pack on OpenGameArt.Org (https://opengameart.org/content/fireworks), released under public domain
+Content/blueshot.png - created by Myriad as part of their Fireworks Pack on OpenGameArt.Org (https://opengameart.org/content/fireworks), released under public domain
+Content/yellowshot.png - created by Myriad as part of their Fireworks Pack on OpenGameArt.Org (https://opengameart.org/content/fireworks), released under public domain
 
-Content/Background_City_Skyline/* (all folder content) - by FabinhoSC on OpenGameArt.Org licensed under Public Domain: https://opengameart.org/content/skyline-background#
 
-Content/FullMoon.png - by peony on OpenGameArt.Org licensed under CC-BY 4.0: https://opengameart.org/content/space-pixel-art
-Content/YellowHalfMoon.png - by peony on OpenGameArt.Org licensed under CC-BY 4.0: https://opengameart.org/content/space-pixel-art
+Content/Backgroun_City_Skyline_Back_03.png - created by FabinhoSC as part of their Skyline-Background Pack 
+on OpenGameArt.Org (https://opengameart.org/content/skyline-background#), licensed under public domain: 
 
-Content/Clouds.png - by Igor Gundarev on OpenGameArt.Org licensed under Public Domain: https://opengameart.org/content/clouds
+Content/FullMoon.png - created by peony as part of their Space Pixel Art Pack on OpenGameArt.Org (https://opengameart.org/content/space-pixel-art), licensed under CC-BY 4.0: 
+Content/YellowHalfMoon.png - created by peony as part of their Space Pixel Art Pack on OpenGameArt.Org (https://opengameart.org/content/space-pixel-art), licensed under CC-BY 4.0:
+
+Content/Clouds.png - created by Igor Gundarev on OpenGameArt.Org (https://opengameart.org/content/clouds), licensed under public domain
 
 Content/Press_Start_2P/PressStart2P-Regular.ttf - Press_Start_2P font created by CodeMan38, released on Google Fonts (https://fonts.google.com/specimen/Press%20Start%202P) under the Open Font License
