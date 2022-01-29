@@ -7,13 +7,14 @@ namespace CIS580_Project
     public class FireworkGame : Game
     {
         private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
+        private SpriteBatch spriteBatch;
 
-        private Texture2D moonSprite;
+        private MoonSprite moonSprite;
         private FireworkSprite[] fireworks;
         private SkylineSprite skyline;
-        private CloudSprite[] clouds;
-        private SpriteFont pressStart2P;
+        private CloudSprite clouds;
+        private SpriteFont pressStart2P_font36;
+        private SpriteFont pressStart2P_font12;
 
         public FireworkGame()
         {
@@ -25,28 +26,22 @@ namespace CIS580_Project
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            /* old work example for later
-             * slimeGhost = new SlimeGhostSprite();
-            bats = new BatSprite[]
-            {
-                new BatSprite(){ Position = new Vector2(100, 100), Direction = Direction.Down},
-                new BatSprite(){ Position = new Vector2(400, 400), Direction = Direction.Up },
-                new BatSprite(){ Position = new Vector2(200, 500), Direction = Direction.Left}
-            };
-             */
+            moonSprite = new MoonSprite();
+            skyline = new SkylineSprite();
+            clouds = new CloudSprite();
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            moonSprite = Content.Load<Texture2D>("FullMoon");
-            //foreach (var fw in fireworks) fw.LoadContent(Content);
-            //skyline.LoadContent(Content);
-            //foreach (var c in clouds) c.LoadContent(Content);
-            pressStart2P = Content.Load<SpriteFont>("PressStart2P");
+            moonSprite.LoadContent(Content);
+            skyline.LoadContent(Content);
+            clouds.LoadContent(Content);
+            pressStart2P_font36 = Content.Load<SpriteFont>("PressStart2P_font36");
+            pressStart2P_font12 = Content.Load<SpriteFont>("PressStart2P_font12");
         }
 
         protected override void Update(GameTime gameTime)
@@ -55,30 +50,23 @@ namespace CIS580_Project
                 Exit();
 
             // TODO: Add your update logic here
-
-            /*
-             * example from classwork
-             *             slimeGhost.Update(gameTime);
-            foreach (var bat in bats) bat.Update(gameTime);
-             */
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.DarkBlue);
 
             // TODO: Add your drawing code here
-            _spriteBatch.Begin();
-
-            /*
-             *             slimeGhost.Draw(gameTime, spriteBatch);
-            spriteBatch.Draw(atlas, new Vector2(50, 50), new Rectangle(96, 16, 16, 16), Color.White);
-            foreach (var bat in bats) bat.Draw(gameTime, spriteBatch);
-            spriteBatch.DrawString(bangers, $"{gameTime.TotalGameTime:c}", new Vector2(2, 2), Color.Gold);
-             */
-            _spriteBatch.DrawString(pressStart2P, "Light \nThe Sky", new Vector2(200, 200), Color.Red);
-            _spriteBatch.End();
+            spriteBatch.Begin();
+            moonSprite.Draw(gameTime, spriteBatch);
+            skyline.Draw(gameTime, spriteBatch);
+            clouds.Draw(gameTime, spriteBatch);
+          
+            spriteBatch.DrawString(pressStart2P_font36, "Light The Sky", new Vector2(75, 200), Color.Gold);
+            spriteBatch.DrawString(pressStart2P_font12, "Press 'Esc' to exit", new Vector2(450, 450), Color.Gold);
+            //spriteBatch.DrawString(pressStart2P)
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }

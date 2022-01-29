@@ -3,9 +3,8 @@ Content/violetshot.png - created by Myriad as part of their Fireworks Pack on Op
 Content/blueshot.png - created by Myriad as part of their Fireworks Pack on OpenGameArt.Org (https://opengameart.org/content/fireworks), released under public domain
 Content/yellowshot.png - created by Myriad as part of their Fireworks Pack on OpenGameArt.Org (https://opengameart.org/content/fireworks), released under public domain
 
-
-Content/Backgroun_City_Skyline_Back_03.png - created by FabinhoSC as part of their Skyline-Background Pack 
-on OpenGameArt.Org (https://opengameart.org/content/skyline-background#), licensed under public domain: 
+Content/Backgroun_City_Skyline_Front_01.png - created by FabinhoSC as part of their Skyline-Background Pack on OpenGameArt.Org (https://opengameart.org/content/skyline-background#), licensed under public domain: 
+Content/Backgroun_City_Skyline_Back_03.png - created by FabinhoSC as part of their Skyline-Background Pack on OpenGameArt.Org (https://opengameart.org/content/skyline-background#), licensed under public domain: 
 
 Content/FullMoon.png - created by peony as part of their Space Pixel Art Pack on OpenGameArt.Org (https://opengameart.org/content/space-pixel-art), licensed under CC-BY 4.0: 
 Content/YellowHalfMoon.png - created by peony as part of their Space Pixel Art Pack on OpenGameArt.Org (https://opengameart.org/content/space-pixel-art), licensed under CC-BY 4.0:
