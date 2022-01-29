@@ -23,16 +23,68 @@ namespace CIS580_Project
     /// </summary>
     public class FireworkSprite
     {
-        private Texture2D texture;
+        private Texture2D redTexture;
+        private Texture2D blueTexture;
+        private Texture2D yellowTexture;
+        private Texture2D violetTexture;
 
         private double animationTimer;
 
-        private short animationFrame;
+        private short animationFrame = 0;
+
+        private FireworkColor fireworkColor;
+
+        private Vector2 position;
 
         /// <summary>
-        /// The position of the firework
+        /// Constructor for firework sprite, used for setting position and Firework Color for generated fireworks
         /// </summary>
-        public Vector2 Position;
+        public FireworkSprite()
+        {
+            //Random r = new Random();
+            position = new Vector2(600, 300);
+            //fireworkColor = GenerateColor();
+            //fireworkColor = FireworkColor.Red;
+        }
+
+        /// <summary>
+        /// Constructor for firework sprite, used for position and Firework Color for input fireworks
+        /// </summary>
+        /// <param name="p"></param>
+        public FireworkSprite(Vector2 p)
+        {
+            position = p;
+            //fireworkColor = GenerateColor();
+            fireworkColor = FireworkColor.Blue;
+        }
+
+        /// <summary>
+        /// Helper method for picking a color for the firework sprite
+        /// </summary>
+        /// <returns>The color of the firework sprite</returns>
+        private FireworkColor GenerateColor()
+        {
+            Random r = new Random();
+            int choice = r.Next(1, 5);
+            FireworkColor color = FireworkColor.Red;
+
+            switch (choice)
+            {
+                case 1:
+                    color = FireworkColor.Red;
+                    break;
+                case 2:
+                    color = FireworkColor.Blue;
+                    break;
+                case 3:
+                    color = FireworkColor.Yellow;
+                    break;
+                case 4:
+                    color = FireworkColor.Violet;
+                    break;
+            }
+            return color;
+        }
 
         /// <summary>
         /// Loads the firework sprite texture
@@ -40,8 +92,10 @@ namespace CIS580_Project
         /// <param name="content">The ContentManager to load with</param>
         public void LoadContent(ContentManager content)
         {
-            //Going to come back and add functionality for loading the other three colors later
-            texture = content.Load<Texture2D>("redshot");
+            redTexture = content.Load<Texture2D>("redshot");
+            blueTexture = content.Load<Texture2D>("blueshot");
+            yellowTexture = content.Load<Texture2D>("yellowshot");
+            violetTexture = content.Load<Texture2D>("violetshot");
         }
 
         /// <summary>
@@ -53,17 +107,33 @@ namespace CIS580_Project
         {
             animationTimer += gameTime.ElapsedGameTime.TotalSeconds;
 
-            //If the firework sprite still has frames to show its animation 
-            //Should only be animated once
-            if (animationTimer > 0.2 && animationFrame < 9)
+            //If the firework sprite still has frames to show its animation (Should only be animated once per a sprite)
+            if (animationTimer > 0.1 && animationFrame < 9)
             {
-                animationTimer -= 0.2;
+                animationTimer -= 0.1;
                 animationFrame++;
             }
 
             //Draw the sprite
-            var source = new Rectangle(animationFrame * 64, 64, 64, 64);
-            spriteBatch.Draw(texture, Position, source, Color.White);
+            var source = new Rectangle(animationFrame * 64, 0, 64, 64);
+
+            fireworkColor = FireworkColor.Yellow;
+
+            switch (fireworkColor)
+            {
+                case FireworkColor.Red:
+                    spriteBatch.Draw(redTexture, position, source, Color.White, 0, new Vector2(64, 64), 1.50f, SpriteEffects.None, 0);
+                    break;
+                case FireworkColor.Blue:
+                    spriteBatch.Draw(blueTexture, position, source, Color.White, 0, new Vector2(64, 64), 2.50f, SpriteEffects.None, 0);
+                    break;
+                case FireworkColor.Yellow:
+                    spriteBatch.Draw(yellowTexture, position, source, Color.White, 0, new Vector2(64, 64), 2.50f, SpriteEffects.None, 0);
+                    break;
+                case FireworkColor.Violet:
+                    spriteBatch.Draw(violetTexture, position, source, Color.White, 0, new Vector2(64,64), 2.50f, SpriteEffects.None, 0);
+                    break;
+            }
         }
     }
 }
