@@ -16,11 +16,20 @@ namespace CIS580_Project
 
         private Texture2D texture;
 
+        /// <summary>
+        /// Loads the cloud sprite texture
+        /// </summary>
+        /// <param name="content">The ContentManager to load with</param>
         public void LoadContent(ContentManager content)
         {
             texture = content.Load<Texture2D>("Clouds");
         }
 
+        /// <summary>
+        /// Draws the assortment of cloud sprites
+        /// </summary>
+        /// <param name="gameTime">The game time</param>
+        /// <param name="spriteBatch">The SpriteBatch to draw with</param>
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, new Vector2(200, 200), new Rectangle(0, 32, 128, 32), Color.White, 0, new Vector2(64, 64), 2.00f, SpriteEffects.None, 0);

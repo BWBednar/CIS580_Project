@@ -26,7 +26,7 @@ namespace CIS580_Project
         }
 
         /// <summary>
-        /// Draws the skyline sprite
+        /// Draws the assortment of skyline sprites
         /// </summary>
         /// <param name="gameTime">The game time</param>
         /// <param name="spriteBatch">The spritebatch to render with</param>

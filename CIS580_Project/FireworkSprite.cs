@@ -30,7 +30,14 @@ namespace CIS580_Project
 
         private double animationTimer;
 
-        private short animationFrame = 0;
+        /// <summary>
+        /// The frame of the firework animation 
+        /// </summary>
+        public short AnimationFrame
+        {
+            get;
+            private set;
+        } = 0;
 
         private FireworkColor fireworkColor;
 
@@ -43,19 +50,17 @@ namespace CIS580_Project
         {
             //Random r = new Random();
             position = new Vector2(600, 300);
-            //fireworkColor = GenerateColor();
-            //fireworkColor = FireworkColor.Red;
+            fireworkColor = GenerateColor();
         }
 
         /// <summary>
         /// Constructor for firework sprite, used for position and Firework Color for input fireworks
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="p">The position of the user click</param>
         public FireworkSprite(Vector2 p)
         {
             position = p;
-            //fireworkColor = GenerateColor();
-            fireworkColor = FireworkColor.Blue;
+            fireworkColor = GenerateColor();
         }
 
         /// <summary>
@@ -107,22 +112,19 @@ namespace CIS580_Project
         {
             animationTimer += gameTime.ElapsedGameTime.TotalSeconds;
 
-            //If the firework sprite still has frames to show its animation (Should only be animated once per a sprite)
-            if (animationTimer > 0.1 && animationFrame < 9)
+            if (animationTimer > 0.1)
             {
                 animationTimer -= 0.1;
-                animationFrame++;
+                AnimationFrame++;
             }
 
             //Draw the sprite
-            var source = new Rectangle(animationFrame * 64, 0, 64, 64);
-
-            fireworkColor = FireworkColor.Yellow;
-
+            var source = new Rectangle(AnimationFrame * 64, 0, 64, 64);
+            fireworkColor = FireworkColor.Red;
             switch (fireworkColor)
             {
                 case FireworkColor.Red:
-                    spriteBatch.Draw(redTexture, position, source, Color.White, 0, new Vector2(64, 64), 1.50f, SpriteEffects.None, 0);
+                    spriteBatch.Draw(redTexture, position, source, Color.White, 0, new Vector2(64,64), 2.50f, SpriteEffects.None, 0);
                     break;
                 case FireworkColor.Blue:
                     spriteBatch.Draw(blueTexture, position, source, Color.White, 0, new Vector2(64, 64), 2.50f, SpriteEffects.None, 0);

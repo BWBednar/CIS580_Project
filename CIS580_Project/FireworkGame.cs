@@ -1,20 +1,28 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 
 namespace CIS580_Project
 {
+    /// <summary>
+    /// Class for running the game
+    /// </summary>
     public class FireworkGame : Game
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch spriteBatch;
-
+        
+        //Variables for the sprites
         private MoonSprite moonSprite;
-        private FireworkSprite[] fireworks;
+        private List<FireworkSprite> fireworks;
         private SkylineSprite skyline;
         private CloudSprite clouds;
         private SpriteFont pressStart2P_font36;
         private SpriteFont pressStart2P_font12;
+
+        //Variable for input manager
+        private InputManager inputManager;
 
         public FireworkGame()
         {
@@ -27,12 +35,13 @@ namespace CIS580_Project
         {
             // TODO: Add your initialization logic here
             moonSprite = new MoonSprite();
-            fireworks = new FireworkSprite[]
-            {
-                new FireworkSprite()
-            };
+            fireworks = new List<FireworkSprite>();
+            fireworks.Add(new FireworkSprite());
             skyline = new SkylineSprite();
             clouds = new CloudSprite();
+
+            inputManager = new InputManager();
+
             base.Initialize();
         }
 
@@ -51,8 +60,11 @@ namespace CIS580_Project
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            inputManager.Update(gameTime, Content, fireworks);
+            if (inputManager.Exit) Exit();
+
+            
+            
             
             // TODO: Add your update logic here
             base.Update(gameTime);
@@ -61,13 +73,16 @@ namespace CIS580_Project
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Transparent);
-            //Color.Transparent
+            
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             moonSprite.Draw(gameTime, spriteBatch);
             skyline.Draw(gameTime, spriteBatch);
             clouds.Draw(gameTime, spriteBatch);
-            foreach (var fw in fireworks) fw.Draw(gameTime, spriteBatch);
+            foreach (var fw in fireworks)
+            {
+                if (fw.AnimationFrame < 9) fw.Draw(gameTime, spriteBatch);
+            }
             spriteBatch.DrawString(pressStart2P_font36, "Light The Sky", new Vector2(75, 200), Color.Gold);
             spriteBatch.DrawString(pressStart2P_font12, "Press 'Esc' to exit", new Vector2(450, 450), Color.Gold);
             //spriteBatch.DrawString(pressStart2P)
