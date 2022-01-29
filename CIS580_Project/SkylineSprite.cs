@@ -34,13 +34,14 @@ namespace CIS580_Project
         {
             var shortBuildingSource = new Rectangle(0, 0, 250, 170);
             var tallBuildingSource = new Rectangle(0, 0, 250, 170);
+            //All the draw statements have the assets repeat 
+            spriteBatch.Draw(tallBuilding, new Vector2(-100, 325), tallBuildingSource, Color.White, 0, new Vector2(64, 64), 1.50f, SpriteEffects.None, 0);
             spriteBatch.Draw(tallBuilding, new Vector2(0, 325), tallBuildingSource, Color.White, 0, new Vector2(64, 64), 1.50f, SpriteEffects.None, 0);
+            spriteBatch.Draw(tallBuilding, new Vector2(300, 325), tallBuildingSource, Color.White, 0, new Vector2(64, 64), 1.50f, SpriteEffects.None, 0);
+            spriteBatch.Draw(tallBuilding, new Vector2(650, 325), tallBuildingSource, Color.White, 0, new Vector2(64, 64), 1.50f, SpriteEffects.None, 0);
             spriteBatch.Draw(shortBuilding, new Vector2(0, 325), shortBuildingSource, Color.White, 0, new Vector2(64, 64), 1.50f, SpriteEffects.None, 0);
-            spriteBatch.Draw(tallBuilding, new Vector2(250, 325), tallBuildingSource, Color.White, 0, new Vector2(64, 64), 1.50f, SpriteEffects.None, 0);
             spriteBatch.Draw(shortBuilding, new Vector2(250, 325), shortBuildingSource, Color.White, 0, new Vector2(64, 64), 1.50f, SpriteEffects.None, 0);
-            spriteBatch.Draw(tallBuilding, new Vector2(500, 325), tallBuildingSource, Color.White, 0, new Vector2(64, 64), 1.50f, SpriteEffects.None, 0);
             spriteBatch.Draw(shortBuilding, new Vector2(500, 325), shortBuildingSource, Color.White, 0, new Vector2(64, 64), 1.50f, SpriteEffects.None, 0);
-            spriteBatch.Draw(tallBuilding, new Vector2(1000, 325), tallBuildingSource, Color.White, 0, new Vector2(64, 64), 1.50f, SpriteEffects.None, 0);
             spriteBatch.Draw(shortBuilding, new Vector2(750, 325), shortBuildingSource, Color.White, 0, new Vector2(64, 64), 1.50f, SpriteEffects.None, 0);
         }
     }

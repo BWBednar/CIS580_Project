@@ -23,7 +23,11 @@ namespace CIS580_Project
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, new Vector2(0, 325), new Rectangle(0,0,128, 32), Color.White, 0, new Vector2(64, 64), 1.50f, SpriteEffects.None, 0);
+            spriteBatch.Draw(texture, new Vector2(200, 200), new Rectangle(0, 32, 128, 32), Color.White, 0, new Vector2(64, 64), 2.00f, SpriteEffects.None, 0);
+            spriteBatch.Draw(texture, new Vector2(0, 250), new Rectangle(0,0,128, 32), Color.White, 0, new Vector2(64, 64), 2.00f, SpriteEffects.None, 0);
+            spriteBatch.Draw(texture, new Vector2(800, 250), new Rectangle(0, 32, 128, 32), Color.White, 0, new Vector2(64, 64), 2.00f, SpriteEffects.FlipHorizontally, 0);
+            spriteBatch.Draw(texture, new Vector2(750, 275), new Rectangle(0, 0, 128, 32), Color.White, 0, new Vector2(64, 64), 2.00f, SpriteEffects.FlipHorizontally, 0);
+            
         }
     }
 }

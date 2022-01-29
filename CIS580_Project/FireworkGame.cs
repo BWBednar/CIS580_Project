@@ -55,8 +55,8 @@ namespace CIS580_Project
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.DarkBlue);
-
+            GraphicsDevice.Clear(Color.MidnightBlue);
+            //Color.Transparent
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             moonSprite.Draw(gameTime, spriteBatch);
