@@ -44,17 +44,7 @@ namespace CIS580_Project
         private Vector2 position;
 
         /// <summary>
-        /// Constructor for firework sprite, used for setting position and Firework Color for generated fireworks
-        /// </summary>
-        public FireworkSprite()
-        {
-            //Random r = new Random();
-            position = new Vector2(600, 300);
-            fireworkColor = GenerateColor();
-        }
-
-        /// <summary>
-        /// Constructor for firework sprite, used for position and Firework Color for input fireworks
+        /// Constructor for firework sprite
         /// </summary>
         /// <param name="p">The position of the user click</param>
         public FireworkSprite(Vector2 p)
@@ -120,20 +110,19 @@ namespace CIS580_Project
 
             //Draw the sprite
             var source = new Rectangle(AnimationFrame * 64, 0, 64, 64);
-            fireworkColor = FireworkColor.Red;
             switch (fireworkColor)
             {
                 case FireworkColor.Red:
-                    spriteBatch.Draw(redTexture, position, source, Color.White, 0, new Vector2(64,64), 2.50f, SpriteEffects.None, 0);
+                    spriteBatch.Draw(redTexture, position + new Vector2(80, 80), source, Color.White, 0, new Vector2(64,64), 2.50f, SpriteEffects.None, 0);
                     break;
                 case FireworkColor.Blue:
-                    spriteBatch.Draw(blueTexture, position, source, Color.White, 0, new Vector2(64, 64), 2.50f, SpriteEffects.None, 0);
+                    spriteBatch.Draw(blueTexture, position + new Vector2(80, 80), source, Color.White, 0, new Vector2(64, 64), 2.50f, SpriteEffects.None, 0);
                     break;
                 case FireworkColor.Yellow:
-                    spriteBatch.Draw(yellowTexture, position, source, Color.White, 0, new Vector2(64, 64), 2.50f, SpriteEffects.None, 0);
+                    spriteBatch.Draw(yellowTexture, position + new Vector2(80, 80), source, Color.White, 0, new Vector2(64, 64), 2.50f, SpriteEffects.None, 0);
                     break;
                 case FireworkColor.Violet:
-                    spriteBatch.Draw(violetTexture, position, source, Color.White, 0, new Vector2(64,64), 2.50f, SpriteEffects.None, 0);
+                    spriteBatch.Draw(violetTexture, position + new Vector2(80, 80), source, Color.White, 0, new Vector2(64,64), 2.50f, SpriteEffects.None, 0);
                     break;
             }
         }
