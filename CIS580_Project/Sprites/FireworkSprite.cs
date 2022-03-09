@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 
-namespace CIS580_Project
+namespace CIS580_Project.Sprites
 {
     /// <summary>
     /// Enum for determining which firework color to use
