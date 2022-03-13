@@ -4,6 +4,7 @@
 
 using Microsoft.Xna.Framework;
 using CIS580_Project.StateManagement;
+using CIS580_Project.Screens;
 
 namespace CIS580_Project.Screens
 {
@@ -12,7 +13,7 @@ namespace CIS580_Project.Screens
         /// <summary>
         /// Constructor for the main menu screen
         /// </summary>
-        public MainMenuScreen() : base("Lost In Space")
+        public MainMenuScreen() : base("Light The Sky")
         {
             var playGameMenuEntry = new MenuEntry("Play Game");
             //var exitMenuEntry = new MenuEntry("Exit");
@@ -31,7 +32,7 @@ namespace CIS580_Project.Screens
         /// <param name="e"></param>
         private void PlayGameMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
-            //LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, new BackgroundScreen(), new GamePlayScreen());
+            //LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, new BackgroundScreen());
         }
 
         /// <summary>

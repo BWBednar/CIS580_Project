@@ -3,10 +3,13 @@
  */
 
 using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using CIS580_Project.StateManagement;
+using CIS580_Project.Sprites;
+using CIS580_Project.Screens;
 
 namespace CIS580_Project.Screens
 {
@@ -15,8 +18,14 @@ namespace CIS580_Project.Screens
         private ContentManager _content;
         private Texture2D _backgroundTexture;
 
-        private double animationTimer;
-        private int animationFrame;
+        //Variables for the sprites
+        private MoonSprite moonSprite;
+        private List<FireworkSprite> fireworks;
+        private SkylineSprite skyline;
+        private CloudSprite clouds;
+        private SpriteFont pressStart2P_font36;
+        private SpriteFont pressStart2P_font12;
+        Vector2 autoscroll = new Vector2();
 
         /// <summary>
         /// Constructor for the background screen
@@ -39,6 +48,20 @@ namespace CIS580_Project.Screens
             if (_content == null)
                 _content = new ContentManager(ScreenManager.Game.Services, "Content");
 
+            moonSprite = new MoonSprite();
+            fireworks = new List<FireworkSprite>();
+            fireworks.Add(new FireworkSprite(new Vector2(600, 300)));
+            fireworks.Add(new FireworkSprite(new Vector2(100, 100)));
+            fireworks.Add(new FireworkSprite(new Vector2(550, 75)));
+            skyline = new SkylineSprite();
+            clouds = new CloudSprite();
+
+            moonSprite.LoadContent(_content);
+            foreach (var fw in fireworks) fw.LoadContent(_content);
+            skyline.LoadContent(_content);
+            clouds.LoadContent(_content);
+            pressStart2P_font36 = _content.Load<SpriteFont>("PressStart2P_font36");
+            pressStart2P_font12 = _content.Load<SpriteFont>("PressStart2P_font12");
             //_backgroundTexture = _content.Load<Texture2D>("space_background");
         }
 
@@ -66,25 +89,31 @@ namespace CIS580_Project.Screens
         /// <param name="gameTime"></param>
         public override void Draw(GameTime gameTime)
         {
-            animationTimer += gameTime.ElapsedGameTime.TotalSeconds;
-            if (animationTimer > 0.2)
-            {
-                animationTimer -= 0.2;
-                animationFrame++;
-                if (animationFrame == 4) animationFrame = 0;
-            }
-            var source = new Rectangle(animationFrame * 64, 0, 64, 64);
+            
 
             var spriteBatch = ScreenManager.SpriteBatch;
+            ScreenManager.GraphicsDevice.Clear(Color.Transparent);
+
+            //This transform for autoscrolling is adapted from the CIS 580 textbook
+            //https://textbooks.cs.ksu.edu/cis580/08-spritebatch-transforms/03-screen-scrolling/
+
+            autoscroll.X -= Vector2.UnitX.X * (float)gameTime.ElapsedGameTime.TotalSeconds * 15;
+            Matrix transform = Matrix.CreateTranslation(autoscroll.X, autoscroll.Y, 0);
+            spriteBatch.Begin(transformMatrix: transform);
+            clouds.Draw(gameTime, spriteBatch);
+            spriteBatch.End();
+
             spriteBatch.Begin();
-            //fill the background with the animation
-            for (int i = 0; i < Constants.GAME_HEIGHT; i += 64)
+            moonSprite.Draw(gameTime, spriteBatch);
+            skyline.Draw(gameTime, spriteBatch);
+
+            foreach (var fw in fireworks)
             {
-                for (int j = 0; j < Constants.GAME_WIDTH; j += 64)
-                {
-                    //spriteBatch.Draw(_backgroundTexture, new Rectangle(j, i, 64, 64), source, Color.White);
-                }
+                //Firework sprites only show once and have 8 animation frames
+                if (fw.AnimationFrame < 9) fw.Draw(gameTime, spriteBatch);
             }
+
+            
             spriteBatch.End();
         }
     }

@@ -63,7 +63,7 @@ namespace CIS580_Project.StateManagement
         protected override void LoadContent()
         {
             SpriteBatch = new SpriteBatch(GraphicsDevice);
-            Font = _content.Load<SpriteFont>("PressStart2P_font12");
+            Font = _content.Load<SpriteFont>("PressStart2P_font36");
             //BlankTexture = _content.Load<Texture2D>("blank");
 
             // Tell each of the screens to load thier content 
