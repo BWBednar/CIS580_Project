@@ -30,6 +30,7 @@ namespace CIS580_Project
 
         MouseState _currentMouseState;
         MouseState _priorMouseState;
+        Vector2 autoscroll = new Vector2();
 
         public Vector2 Position { get; set; }
         public Vector2 Velocity { get; set; }
@@ -45,7 +46,6 @@ namespace CIS580_Project
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-
         }
 
         /// <summary>
@@ -117,6 +117,7 @@ namespace CIS580_Project
                     case 2:
                         //_dotFireworks.PlaceFirework(position);
                         break;
+                    
                 }
                 
             }
@@ -136,8 +137,8 @@ namespace CIS580_Project
 
             //This transform for autoscrolling is adapted from the CIS 580 textbook
             //https://textbooks.cs.ksu.edu/cis580/08-spritebatch-transforms/03-screen-scrolling/
-            Vector2 autoscroll = new Vector2();
-            //autoscroll.X += Vector2.UnitX * (float)gameTime.ElapsedGameTime.TotalSeconds * 25;
+            
+            autoscroll.X -= Vector2.UnitX.X * (float)gameTime.ElapsedGameTime.TotalSeconds * 25;
             Matrix transform = Matrix.CreateTranslation(autoscroll.X, autoscroll.Y, 0);
             spriteBatch.Begin(transformMatrix: transform);
             clouds.Draw(gameTime, spriteBatch);
