@@ -12,3 +12,5 @@ Content/YellowHalfMoon.png - created by peony as part of their Space Pixel Art P
 Content/Clouds.png - created by Igor Gundarev on OpenGameArt.Org (https://opengameart.org/content/clouds), licensed under public domain
 
 Content/Press_Start_2P/PressStart2P-Regular.ttf - Press_Start_2P font created by CodeMan38, released on Google Fonts (https://fonts.google.com/specimen/Press%20Start%202P) under the Open Font License
+
+Content/explosion1.png - created by GameProgrammingSlave on OpenGameArt.Org (https://opengameart.org/content/explosions), licensed under public domain

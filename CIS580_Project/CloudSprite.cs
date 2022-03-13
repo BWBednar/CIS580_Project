@@ -32,10 +32,13 @@ namespace CIS580_Project
         /// <param name="spriteBatch">The SpriteBatch to draw with</param>
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, new Vector2(200, 200), new Rectangle(0, 32, 128, 32), Color.White, 0, new Vector2(64, 64), 2.00f, SpriteEffects.None, 0);
-            spriteBatch.Draw(texture, new Vector2(0, 250), new Rectangle(0,0,128, 32), Color.White, 0, new Vector2(64, 64), 2.00f, SpriteEffects.None, 0);
-            spriteBatch.Draw(texture, new Vector2(800, 250), new Rectangle(0, 32, 128, 32), Color.White, 0, new Vector2(64, 64), 2.00f, SpriteEffects.FlipHorizontally, 0);
-            spriteBatch.Draw(texture, new Vector2(750, 275), new Rectangle(0, 0, 128, 32), Color.White, 0, new Vector2(64, 64), 2.00f, SpriteEffects.FlipHorizontally, 0);
+            for (int i = 0; i < 10; i++)
+            {
+                spriteBatch.Draw(texture, new Vector2(200 + (i * 800), 200), new Rectangle(0, 32, 128, 32), Color.White, 0, new Vector2(64, 64), 2.00f, SpriteEffects.None, 0);
+                spriteBatch.Draw(texture, new Vector2(0 + (i * 800), 250), new Rectangle(0, 0, 128, 32), Color.White, 0, new Vector2(64, 64), 2.00f, SpriteEffects.None, 0);
+                spriteBatch.Draw(texture, new Vector2(800 + (i * 800), 250), new Rectangle(0, 32, 128, 32), Color.White, 0, new Vector2(64, 64), 2.00f, SpriteEffects.FlipHorizontally, 0);
+                spriteBatch.Draw(texture, new Vector2(750 + (i * 800), 275), new Rectangle(0, 0, 128, 32), Color.White, 0, new Vector2(64, 64), 2.00f, SpriteEffects.FlipHorizontally, 0);
+            }
             
         }
     }
