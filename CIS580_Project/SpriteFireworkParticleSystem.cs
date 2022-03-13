@@ -22,7 +22,7 @@ namespace CIS580_Project
         };
 
         Color color;
-        public SpriteFireworkParticleSystem(Game game, int maxExplosions) : base(game, maxExplosions * 25)
+        public SpriteFireworkParticleSystem(Game game, int maxExplosions) : base(game, maxExplosions * 60)
         {
 
         }
@@ -31,7 +31,7 @@ namespace CIS580_Project
         {
             textureFilename = "redshot";
             minNumParticles = 20;
-            maxNumParticles = 25;
+            maxNumParticles = 60;
             blendState = BlendState.Additive;
             DrawOrder = AdditiveBlendDrawOrder;
         }

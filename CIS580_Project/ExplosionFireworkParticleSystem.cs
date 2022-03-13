@@ -21,7 +21,7 @@ namespace CIS580_Project
         };
 
         Color color;
-        public ExplosionFireworkParticleSystem(Game game, int maxExplosions) : base (game, maxExplosions * 25)
+        public ExplosionFireworkParticleSystem(Game game, int maxExplosions) : base (game, maxExplosions * 40)
         {
 
         }
@@ -30,7 +30,7 @@ namespace CIS580_Project
         {
             textureFilename = "explosion1";
             minNumParticles = 20;
-            maxNumParticles = 25;
+            maxNumParticles = 40;
             blendState = BlendState.Additive;
             DrawOrder = AdditiveBlendDrawOrder;
         }

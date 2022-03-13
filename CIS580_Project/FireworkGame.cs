@@ -64,12 +64,12 @@ namespace CIS580_Project
 
             //inputManager = new InputManager();
 
-            _explosionFireworks = new ExplosionFireworkParticleSystem(this, 20);
+            _explosionFireworks = new ExplosionFireworkParticleSystem(this, 40);
             Components.Add(_explosionFireworks);
-            _spriteFireworks = new SpriteFireworkParticleSystem(this, 20);
+            _spriteFireworks = new SpriteFireworkParticleSystem(this, 60);
             Components.Add(_spriteFireworks);
-            //_dotFireworks = new DotFireworkParticleSystem(this, 20);
-            //Components.Add(_dotFireworks);
+            _dotFireworks = new DotFireworkParticleSystem(this, 20);
+            Components.Add(_dotFireworks);
 
             base.Initialize();
         }
@@ -105,7 +105,7 @@ namespace CIS580_Project
             _currentMouseState = Mouse.GetState();
             if(_currentMouseState.LeftButton == ButtonState.Pressed && _priorMouseState.LeftButton == ButtonState.Released)
             {
-                int choice = RandomHelper.Next(2);
+                int choice = RandomHelper.Next(3);
                 switch (choice)
                 {
                     case 0:
@@ -115,7 +115,7 @@ namespace CIS580_Project
                         _spriteFireworks.PlaceFirework(position);
                         break;
                     case 2:
-                        //_dotFireworks.PlaceFirework(position);
+                        _dotFireworks.PlaceFirework(position);
                         break;
                     
                 }
@@ -138,7 +138,7 @@ namespace CIS580_Project
             //This transform for autoscrolling is adapted from the CIS 580 textbook
             //https://textbooks.cs.ksu.edu/cis580/08-spritebatch-transforms/03-screen-scrolling/
             
-            autoscroll.X -= Vector2.UnitX.X * (float)gameTime.ElapsedGameTime.TotalSeconds * 25;
+            autoscroll.X -= Vector2.UnitX.X * (float)gameTime.ElapsedGameTime.TotalSeconds * 15;
             Matrix transform = Matrix.CreateTranslation(autoscroll.X, autoscroll.Y, 0);
             spriteBatch.Begin(transformMatrix: transform);
             clouds.Draw(gameTime, spriteBatch);
