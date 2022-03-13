@@ -1,4 +1,8 @@
-﻿using Microsoft.Xna.Framework;
+﻿/**
+ * Starting for particle effect code taken from Nathan Bean's particle-system-example assignment from CIS 580 at K-State
+ */
+
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
@@ -58,7 +62,7 @@ namespace CIS580_Project
             skyline = new SkylineSprite();
             clouds = new CloudSprite();
 
-            //  inputManager = new InputManager();
+            //inputManager = new InputManager();
 
             _explosionFireworks = new ExplosionFireworkParticleSystem(this, 20);
             Components.Add(_explosionFireworks);
@@ -94,6 +98,7 @@ namespace CIS580_Project
         {
             //inputManager.Update(gameTime, Content, fireworks);
             //if (inputManager.Exit) Exit();
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape)) Exit();
 
             Vector2 position = new Vector2(_currentMouseState.X, _currentMouseState.Y);
             _priorMouseState = _currentMouseState;
