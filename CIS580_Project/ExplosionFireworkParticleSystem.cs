@@ -10,8 +10,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace CIS580_Project
 {
+    /// <summary>
+    /// Class for fireworks using the explosion image, uses the alpha coloring for it
+    /// </summary>
     public class ExplosionFireworkParticleSystem : ParticleSystem
     {
+        
         Color[] colors = new Color[]
         {
             Color.Red,
@@ -52,9 +56,9 @@ namespace CIS580_Project
             base.UpdateParticle(ref particle, dt);
 
             float normalizedLifetime = particle.TimeSinceStart / particle.Lifetime;
-            //float alpha = 4 * normalizedLifetime * (1 - normalizedLifetime);
-            //particle.Color = Color.White * alpha;
-            particle.Scale = 0.1f + 0.25f * normalizedLifetime;
+            float alpha = 4 * normalizedLifetime * (1 - normalizedLifetime);
+            particle.Color = Color.White * alpha;
+            particle.Scale = 0.3f + 0.25f * normalizedLifetime;
         }
 
         public void PlaceFirework(Vector2 where)
